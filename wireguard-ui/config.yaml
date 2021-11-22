@@ -1,0 +1,25 @@
+---
+name: Wireguard UI
+version: 1.0.0
+slug: wireguard-ui
+description: >-
+  Web UI for provisioning and managing device keys and configurations for
+  Wireguard.
+arch:
+  - aarch64
+  - amd64
+  - armv7
+ingress: true
+privileged:
+  - NET_ADMIN
+  - SYS_ADMIN
+panel_icon: mdi:vpn
+panel_title: WireGuard UI
+options:
+  endpoint: null
+schema:
+  endpoint: str
+ports:
+  51820/udp: 51820
+ports_description:
+  51820/udp: Wireguard data

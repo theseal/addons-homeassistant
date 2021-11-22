@@ -1,0 +1,24 @@
+#!/usr/bin/with-contenv bashio
+# shellcheck disable=SC2191
+# ==============================================================================
+# Home Assistant Community Add-on: Wireguard UI
+# Runs the Wireguard UI
+# ==============================================================================
+
+declare port
+declare endpoint
+
+bashio::log.info 'Starting Wireguard UI...'
+
+endpoint=$(bashio::config 'endpoint')
+port=$(bashio::addon.port '51820/udp')
+
+# Run Grafana
+exec /wireguard-ui                                      \
+    --auth-user-header=X-Hass-User-ID                   \
+    --data-dir=/data                                    \
+    --listen-address="127.0.0.1:8080" \
+    --log-level=debug                                   \
+    --wg-device-name=wg0                                \
+    --wg-endpoint=${endpoint}:${port}                   \
+    --wg-listen-port=${port}

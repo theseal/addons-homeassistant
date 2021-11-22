@@ -1,0 +1,4 @@
+# https://developers.home-assistant.io/docs/add-ons/repository#repository-configuration
+name: Home Assistant add-on repository by TheSeal
+url: "https://github.com/theseal/addons-homeassistant"
+maintainer: Johan Wassberg <johan@rymdvarel.se>
