@@ -19,6 +19,7 @@ exec /wireguard-ui                                      \
     --data-dir=/data                                    \
     --listen-address="127.0.0.1:8080" \
     --log-level=debug                                   \
+    --nat-device=eth0                                   \
     --wg-device-name=wg0                                \
     --wg-endpoint=${endpoint}:${port}                   \
     --wg-listen-port=${port}
