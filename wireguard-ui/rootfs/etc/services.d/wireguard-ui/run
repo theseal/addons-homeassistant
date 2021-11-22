@@ -12,6 +12,7 @@ declare dns
 bashio::log.info 'Starting Wireguard UI...'
 
 endpoint=$(bashio::config 'endpoint')
+dns=$(bashio::config 'dns')
 port=$(bashio::addon.port '51820/udp')
 
 # Run Grafana
