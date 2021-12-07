@@ -47,7 +47,7 @@ will actually work.
 DO NOT attempt to use a URL such as a Nabu Casa endpoint, the entry needs to be
 either a DNS entry or IP address that is accessible by the clients.
 
-### Option: `server.dns` _(optional)_
+### Option: `dns` _(optional)_
 
 A DNS server used by the add-on and the configuration generated for
 the clients. This configuration option is optional but highly recommended
