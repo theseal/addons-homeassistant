@@ -7,11 +7,13 @@
 
 declare port
 declare endpoint
+declare default_nic
 declare dns
 
 bashio::log.info 'Starting Wireguard UI...'
 
 endpoint=$(bashio::config 'endpoint')
+default_nic=$(ip route | grep default | awk '{print $5}')
 dns=$(bashio::config 'dns')
 port=$(bashio::addon.port '51820/udp')
 
@@ -21,7 +23,7 @@ exec /wireguard-ui                                      \
     --data-dir=/data                                    \
     --listen-address="127.0.0.1:8080" \
     --log-level=debug                                   \
-    --nat-device=eth0                                   \
+    --nat-device=${default_nic}                         \
     --wg-device-name=wg0                                \
     --wg-dns=${dns}                                     \
     --wg-endpoint=${endpoint}:${port}                   \
