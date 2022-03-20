@@ -5,16 +5,16 @@
 # Runs the Wireguard UI
 # ==============================================================================
 
-declare port
-declare endpoint
 declare default_nic
 declare dns
+declare endpoint
+declare port
 
 bashio::log.info 'Starting Wireguard UI...'
 
-endpoint=$(bashio::config 'endpoint')
 default_nic=$(ip route | grep default | awk '{print $5}')
 dns=$(bashio::config 'dns')
+endpoint=$(bashio::config 'endpoint')
 port=$(bashio::addon.port '51820/udp')
 
 # Run Grafana
