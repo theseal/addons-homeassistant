@@ -21,7 +21,7 @@ port=$(bashio::addon.port '51820/udp')
 exec /wireguard-ui                                      \
     --auth-user-header=X-Hass-User-ID                   \
     --data-dir=/data                                    \
-    --listen-address="127.0.0.1:8080" \
+    --listen-address="127.0.0.1:8080"                   \
     --log-level=debug                                   \
     --nat-device=${default_nic}                         \
     --wg-device-name=wg0                                \
